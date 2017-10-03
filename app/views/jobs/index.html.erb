@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>RemoteStudent</title>
+	<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+</head>
+<body>
+    <div class="intro-page">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand" href="/"><strong>REMOTESTUDENT</strong></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+              <li class="nav-item">
+                <strong><%= link_to "POST JOB", new_job_path, class: "nav-link" %></strong>
+              </li>
+              <li class="nav-item">
+                <strong><%= link_to "SIGN OUT", destroy_user_session_path, :method => :delete, class: "nav-link" %></strong>
+              </li>
+              <li class="nav-item">
+                <strong><%= link_to current_user.name, edit_user_registration_path, class: "nav-link" %></strong>
+              </li>
+              <% else %>
+              <li class="nav-item">
+                <strong><%= link_to "ABOUT", pages_about_path, class: "nav-link" %></strong>
+              </li>
+              <li class="nav-item">
+                <strong><%= link_to "LOG IN…", new_user_session_path, class: "nav-link" %></strong>
+              </li>
+              <% end -%>
+            </ul>	
+          </div>
+        </nav>
+        <div class="intro-text">
+          <div class="intro-heading">
+            <h1><span class="too-many">Searching for</span><br> remote work?</h1>
+            <p>RemoteStudent is the platform for students and companies to help eachother. <br> Do you have alot of extra work? Hire a remote student!</p>
+            <div class="intro-buttons">
+              <% if user_signed_in? %>
+              <span class="intro-button"><%= link_to "SUBMIT JOBS", new_job_path %></span>
+              <% else %>
+              <span class="intro-button"><%= link_to "SIGN UP", new_user_registration_path %></span>
+              <% end -%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="companies-page">
+      <div class="row-companies">
+        <h4 class="section-title">
+          <span>Jobs<i class="fa fa-arrow-down" aria-hidden="true"></i></span>
+        </h4>
+      </div>
+    </div>
+
+	<div class="container">
+		<div id="jobs">
+			<% @jobs.take(10).each do |job| %>
+			<div class="container job">
+				<small id="created" style="float: right;"><%= time_ago_in_words(job.created_at) %></small>
+				<h2 class="mb-1 jobtitle"><%= link_to job.title, job%></h2>
+				<small id="inforow"><%= job.where%></small>
+				<small id="category" style="color: green; float: right;"><%= job.category.name%></small>
+				<small id="inforow"><%= job.hours%> Hours/W</small>
+				<small id="inforow">$<%= job.money%>/mo.</small>
+				<p class="mb-1" id="company"><%= job.company%></p>
+			</div>
+			<% end -%>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<div class="formpie">
+	<%= simple_form_for(@job, html: { class: 'form-horizontal' }) do |f| %>
+		<%= f.input :title, label: "Job title"%>
+		<%= f.collection_select :typejob_id, Typejob.all, :id, :name %>
+		<p></p>
+ 		<%= f.trix_editor :description, placeholder: "Plenty of space for the job description right here.. :-)"%>
+ 		<p></p>
+ 		<%= f.input :company, label: "Company name"%>
+ 		<%= f.input :where, label: "Based in.."%>
+ 		<%= f.input :hours, label: "Amount of hours (weekly)"%>
+ 		<%= f.input :money, label: "Estimated salary ($/month)"%>
+
+ 		<%= f.input :url, placeholder: "Can also be an e-mail adress!", label:"URL"%>
+ 		<%= f.collection_select :category_id, Category.all, :id, :name %>
+ 		<br>
+ 		<br>
+ 		<%= f.button :submit, class: "applyjob" %>
+	<% end %>
+	<%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Amount: $49.99</span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A remote job listing"
+          data-amount="500"
+          data-locale="auto"></script>
+<% end %>
+</div>

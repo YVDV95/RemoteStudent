@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RemoteStudent</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <%= yield %>
+  </body>
+
+  <footer id="myFooter">
+    <div class="container">
+        <ul>
+            <li><a href="mailto:hello@remotestudent.io">Contact</a></li>
+        </ul>
+    <p class="footer-copyright">© 2017 Copyright RemoteStudent</p>
+    </div>
+    <div class="footer-social">
+        <a href="#" class="social-icons"><i class="fa fa-facebook"></i></a>
+        <a href="#" class="social-icons"><i class="fa fa-google-plus"></i></a>
+        <a href="#" class="social-icons"><i class="fa fa-twitter"></i></a>
+    </div>
+  </footer>
+</html>

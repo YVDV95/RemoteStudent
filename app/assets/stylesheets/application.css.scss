@@ -1,0 +1,403 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require trix
+ */
+@import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import "bootstrap";
+
+*, :after, :before{
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Roboto' sans-serif;
+	background-color: #f2f5f7;
+}
+
+.intro-page{
+	background: #00c6ff;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #00c6ff, #0072ff);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #00c6ff, #0072ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	height: 530px;
+	width: 100%;
+	position: relative;
+	z-index: 1;
+}
+
+.intro-page:after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: inherit;
+    z-index: -1;
+    bottom: 0;
+    transform-origin: right bottom;
+    transform: skewY(-3deg);
+}
+
+.intro-page-small{
+	background: #9D50BB;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #6E48AA, #9D50BB);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #6E48AA, #9D50BB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	height: 180px;
+	width: 100%;
+	position: relative;
+	z-index: 1;
+}
+
+.intro-page-small:after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: inherit;
+    z-index: -1;
+    bottom: 0;
+    transform-origin: right bottom;
+    transform: skewY(-3deg);
+}
+
+.companies-page{
+	height: 100px;
+	background-color: #f2f5f7;
+}
+
+.row-companies{
+	margin-top: 100px;
+	background-color: #f2f5f7;
+}
+
+.section-title{
+	text-align: center;
+	color: #bcc4cc;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+.intro-heading{
+	margin-top: 130px;
+	line-height: 1.08333333;
+	font-size: 1em;
+	color: white;
+}
+
+@media only screen and (max-width : 480px) {
+	.intro-heading{margin-top: 75px;}
+}
+
+.intro-heading h1{
+	font-weight: 700;
+	font-size: 68px;
+	text-align: left;
+	color: #FFF;
+}
+
+.too-many{
+	color: #f2f5f7;
+}
+
+.intro-heading-small{
+	margin-top: 30px;
+	line-height: 1.08333333;
+	font-size: 1em;
+}
+
+@media only screen and (max-width : 480px) {
+	.intro-heading-small{margin-top: 45px;}
+}
+
+.intro-heading-small h1{
+	font-weight: 700;
+	font-size: 68px;
+	text-align: left;
+	color: #FFF;
+}
+
+.too-many-small{
+	color: #f2f5f7;
+}
+
+.intro-buttons{
+	margin-top: 40px;
+}
+
+.intro-button{
+	text-align: center;
+	background-color: yellow;
+	padding: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
+	border-radius: 5px;
+	box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+	margin-right: 40px;
+}
+
+.job{
+	padding: 15px;
+	margin-bottom: -1px;
+	border-bottom: 1px solid #ececec;
+}
+
+#jobs{
+	border-radius: 4px;
+	background-color: white;
+	box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+}
+
+.created{
+	float: right;
+}
+
+.navbar-light .navbar-nav .nav-link:hover{
+	text-decoration: underline;
+}
+
+.navbar-light .navbar-nav .nav-link{
+	color: white;
+}
+
+.navbar-light .navbar-brand{
+	color: white;
+}
+
+.navbar-light{
+	background-color: transparent;
+}
+
+.navbar-light .navbar-nav .nav-link .navname{
+	color: red;
+}
+.jobtitle{
+	font-size: 17px;
+	line-height: 26px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.020em;
+	color: #b76ac4;
+}
+
+.jobtitle a{
+	color: #00c6ff;
+}
+
+trix-editor{
+	background-color: white;
+}
+
+.formpie{
+	background-color: white;
+	border-radius: 10px;
+	padding: 10px;
+	box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+}
+
+.footer{
+	padding: 10px;
+	text-align: center;
+	border-top: 2px solid rgba(207,215,223,.25);
+	margin-top: 30px;
+	bottom: 0;
+	position: static;
+}
+
+#company{
+	font-size: 12px;
+	line-height: 26px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.015em;
+	color: #8f6ed5;
+}
+
+#inforow{
+	margin-right: 20px;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 26px;
+	text-transform: capitalize;
+	color: #bcc4cc;
+}
+
+.loginpage{
+	background: transparent;
+}
+
+.new-job-listing{
+	margin-top: 200px;
+}
+
+.editdelete{
+	text-align: center;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+
+.showjob .container{
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+	padding-bottom: 15px;
+	margin-top: 20px;
+}
+
+.jobsideinfo{
+	background-color: #fff;
+	margin-top: 20px;
+	border-radius: 5px;
+	box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+	padding: 10px;
+	text-align: center;
+}
+
+#companysideinfo{
+	font-size: 17px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.015em;
+	color: #8f6ed5;
+	text-align: center;
+}
+
+#companysideinfo p{
+	margin-top: 15px;
+}
+
+.applybutton{
+	background: #9d50bb; /* fallback for old browsers */
+	background: -webkit-linear-gradient(left, #9d50bb, #6e48aa);
+	background: -o-linear-gradient(left, #9d50bb, #6e48aa);
+	background: linear-gradient(to right, #9d50bb, #6e48aa); /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	border-radius: 5px;
+	border: none;
+	padding: 10px 10px;
+	box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: 600;
+	letter-spacing: 0.015em;
+}
+
+.applybutton:hover{
+	text-decoration: none;
+	color: white;
+	background: #FF4E50;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #F9D423, #FF4E50);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #F9D423, #FF4E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.applybutton a{
+	color: #fff;
+}
+
+.applybutton a:hover{
+	text-decoration: none;
+}
+/* Footer */
+
+#myFooter{
+    padding-top: 22px;
+    border-top: 2px solid rgba(207,215,223,.25);
+    margin-top: 50px;
+}
+
+#myFooter .container{
+    text-align: center;
+}
+
+#myFooter .footer-copyright{
+    margin-bottom: 35px;
+    text-align: center;
+    color: #bcc4cc;
+}
+
+#myFooter ul{
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 18px;
+}
+
+#myFooter a{
+    color: #bcc4cc;
+    font-size: 18px;
+}
+
+#myFooter li{
+    display: inline-block;
+    margin: 0px 15px;
+    line-height: 2;
+}
+
+#myFooter .footer-social{
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 25px;
+    background-color: #f2f5f7;
+}
+
+#myFooter .fa{
+    font-size: 36px;
+    margin-right: 15px;
+    margin-left: 20px;
+    background-color: #f2f5f7;
+    color: #bcc4cc;
+    border-radius: 51%;
+    padding: 10px;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    line-height: 43px;
+    text-decoration: none;
+    transition:color 0.2s;
+}
+
+#myFooter .fa-facebook:hover{
+   color: #2b55ff;
+}
+
+#myFooter .fa-facebook:focus{
+    color: #2b55ff; 
+}
+
+#myFooter .fa-google-plus:hover{
+    color:red;
+}
+
+#myFooter .fa-google-plus:focus{
+    color:red;
+}
+
+#myFooter .fa-twitter:hover{
+    color: #00aced;
+
+}
+
+#myFooter .fa-twitter:focus{
+    color:#00aced;
+}
+
+
+.content{
+   flex: 1 0 auto;
+   -webkit-flex: 1 0 auto;
+   min-height: 200px;
+}
+
+#myFooter{
+   flex: 0 0 auto;
+   -webkit-flex: 0 0 auto;
+}
