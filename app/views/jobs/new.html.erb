@@ -10,20 +10,20 @@
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
           <li class="nav-item">
-            <strong><%= link_to "JOBS", jobs_path, class: "nav-link" %></strong>
+            <strong><%= link_to "Jobs", jobs_path, class: "nav-link" %></strong>
           </li>
           <li class="nav-item">
-            <strong><%= link_to "SIGN OUT", destroy_user_session_path, :method => :delete, class: "nav-link" %></strong>
+            <strong><%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "nav-link" %></strong>
           </li>
           <% else %>
           <li class="nav-item">
-            <strong><%= link_to "HOME", new_user_session_path, class: "nav-link" %></strong>
+            <strong><%= link_to "Home", new_user_session_path, class: "nav-link" %></strong>
           </li>
           <li class="nav-item">
-            <strong><%= link_to "ABOUT", new_user_session_path, class: "nav-link" %></strong>
+            <strong><%= link_to "About", new_user_session_path, class: "nav-link" %></strong>
           </li>
           <li class="nav-item">
-            <strong><%= link_to "LOG IN…", new_user_session_path, class: "nav-link" %></strong>
+            <strong><%= link_to "Log in", new_user_session_path, class: "nav-link" %></strong>
           </li>
           <% end -%>
         </ul>

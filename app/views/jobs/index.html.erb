@@ -18,28 +18,31 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
               <li class="nav-item">
-                <strong><%= link_to "POST JOB", new_job_path, class: "nav-link" %></strong>
+                <strong><%= link_to "Post job", new_job_path, class: "nav-link" %></strong>
               </li>
               <li class="nav-item">
-                <strong><%= link_to "SIGN OUT", destroy_user_session_path, :method => :delete, class: "nav-link" %></strong>
+                <strong><%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "nav-link" %></strong>
+              </li>
+              <li class="nav-item">
+                <div class="nav-link hello" style="margin-right: -12px;"><strong>hi,</strong></div>
               </li>
               <li class="nav-item">
                 <strong><%= link_to current_user.name, edit_user_registration_path, class: "nav-link" %></strong>
               </li>
               <% else %>
               <li class="nav-item">
-                <strong><%= link_to "ABOUT", pages_about_path, class: "nav-link" %></strong>
+                <strong><%= link_to "About", pages_about_path, class: "nav-link" %></strong>
               </li>
               <li class="nav-item">
-                <strong><%= link_to "LOG IN…", new_user_session_path, class: "nav-link" %></strong>
+                <strong><%= link_to "Log in", new_user_session_path, class: "nav-link" %></strong>
               </li>
               <% end -%>
             </ul>	
           </div>
         </nav>
         <div class="intro-text">
-          <div class="intro-heading">
-            <h1><span class="too-many">Searching for</span><br> remote anus?</h1>
+          <div class="intro-heading homepagetitle">
+            <h1><span class="too-many">Searching for</span><br> remote work?</h1>
             <p>RemoteStudent is the platform for students and companies to help eachother. <br> Do you have alot of extra work? Hire a remote student!</p>
             <div class="intro-buttons">
               <% if user_signed_in? %>

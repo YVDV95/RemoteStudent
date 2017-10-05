@@ -97,12 +97,12 @@ body{
 }
 
 @media only screen and (max-width : 480px) {
-	.intro-heading{margin-top: 75px;}
+	.intro-heading{margin-top: 15px;}
 }
 
 .intro-heading h1{
 	font-weight: 700;
-	font-size: 68px;
+	font-size: 60px;
 	text-align: left;
 	color: #FFF;
 }
@@ -118,7 +118,8 @@ body{
 }
 
 @media only screen and (max-width : 480px) {
-	.intro-heading-small{margin-top: 45px;}
+	.intro-heading{margin-top: 80px;}
+	.intro-heading-small{margin-top: 30px;}
 }
 
 .intro-heading-small h1{
@@ -167,8 +168,13 @@ body{
 	text-decoration: underline;
 }
 
+.navbar-light .navbar-nav .nav-link.hello:hover{
+	text-decoration: none;
+	color: #fff;
+}
+
 .navbar-light .navbar-nav .nav-link{
-	color: white;
+	color: #fff;
 }
 
 .navbar-light .navbar-brand{
