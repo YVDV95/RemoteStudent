@@ -4,7 +4,7 @@ class JobsController < ApplicationController
 
 	def index
 		@jobs = Job.all.order("created_at DESC")
-		@typejobs = Typejob.order(:name)
+		@typejobs = Typejob.order("created_at ASC")
 	end
 
 	def new
