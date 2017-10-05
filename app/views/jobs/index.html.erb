@@ -64,7 +64,7 @@
     </div>
 	<div class="container">
 		<div id="jobs">
-			<% @jobs.take(10).each do |job| %>
+			<% @jobs.take(6).each do |job| %>
 			<div class="container job">
 				<small id="created" style="float: right;"><%= time_ago_in_words(job.created_at) %></small>
 				<h2 class="mb-1 jobtitle"><%= link_to job.title, job%></h2>
@@ -77,5 +77,34 @@
 			<% end -%>
 		</div>
 	</div>
+
+  <div class="container">
+        <% @typejobs.each do |typejob| %>
+              <div class="companies-page">
+                <div class="row-companies">
+                  <div class="section-title">
+                    <span><%= typejob.name %><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
+                  </div>
+                </div>
+              </div>
+              <div class="container">
+                <div id="jobs">
+                  <% typejob.jobs.take(10).each do |job| %>
+                  <div class="container job">
+                    <small id="created" style="float: right;"><%= time_ago_in_words(job.created_at) %></small>
+                    <h2 class="mb-1 jobtitle"><%= link_to job.title, job%></h2>
+                    <small id="inforow"><%= job.where%></small>
+                    <small id="category" style="color: green; float: right;"><%= job.category.name%></small>
+                    <small id="inforow"><%= job.hours%> Hours/W</small>
+                    <small id="inforow">$<%= job.money%>/mo.</small>
+                    <p class="mb-1" id="company"><%= job.company%></p>
+                  </div>
+                  <% end %>
+                </div>
+              </div>
+        <% end %>
+  </div>
+
+
 </body>
 </html>
