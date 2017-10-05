@@ -313,6 +313,12 @@ trix-editor{
 .applybutton a:hover{
 	text-decoration: none;
 }
+
+.categoryrow li{
+	display: inline-block;
+	border: 2px solid black;
+}
+
 /* Footer */
 
 #myFooter{
