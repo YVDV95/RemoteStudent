@@ -1,53 +1,26 @@
-
-<div class="intro-page-small">
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="/"><strong>REMOTESTUDENT</strong></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <% if user_signed_in? %>
-          <li class="nav-item">
-            <strong><%= link_to "JOBS", jobs_path, class: "nav-link" %></strong>
-          </li>
-          <li class="nav-item">
-            <strong><%= link_to "SIGN OUT", destroy_user_session_path, :method => :delete, class: "nav-link" %></strong>
-          </li>
-          <% else %>
-          <li class="nav-item">
-            <strong><%= link_to "HOME", new_user_session_path, class: "nav-link" %></strong>
-          </li>
-          <li class="nav-item">
-            <strong><%= link_to "ABOUT", new_user_session_path, class: "nav-link" %></strong>
-          </li>
-          <li class="nav-item">
-            <strong><%= link_to "LOG IN…", new_user_session_path, class: "nav-link" %></strong>
-          </li>
-          <% end -%>
-        </ul>
-      </div>
-    </nav>
-    <div class="intro-text-small">
-      <div class="intro-heading-small">
-        <h1><span class="too-many-small">Ready?</h1>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="companies-page">
-  <div class="row-companies">
-    <h4 class="section-title">
-      <span><%= @job.title %><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
-    </h4>
-  </div>
-</div>
-
 <div class="container">
 <div class="row">
+	<div class="col-md-4">
+		<div class="container">
+			<div class="jobsideinfo" id="companytitleinfo">
+				<p><%=@job.title%></p>
+			</div>
+			<div class="jobsideinfo" id="companysideinfo">
+				<p><%=@job.company%></p>
+			</div>
+			<div class="jobsideinfo">
+  				<p><%=@job.money%>$/mo<i class="em em-moneybag"></i></p>
+  				<p><%=@job.hours%>h/w<i class="em em-alarm_clock"></i></p>
+  				<p><%=@job.category.name%><i class="em em-ok_hand"></i></p>
+  				<p><%=link_to "Visit website", @job.url%><i class="em em-paperclip"></i></p>
+			</div>
+
+			<div class="jobsideinfo" id="companysideinfo">
+				<p>Apply</p>
+				<button class="applybutton"><%= link_to "Bring me there!", @job %></button>
+			</div>
+		</div>
+	</div>
 	<div class="col-md-8">
 		<div class="showjob">
 			<div class="container">
@@ -70,25 +43,6 @@
 
 					<% end -%>
 				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-md-4">
-		<div class="container">
-			<div class="jobsideinfo" id="companysideinfo">
-				<p><%=@job.company%></p>
-			</div>
-			<div class="jobsideinfo">
-  				<p><%=@job.money%>/mo<i class="em em-moneybag"></i></p>
-  				<p><%=@job.hours%>h/w<i class="em em-alarm_clock"></i></p>
-  				<p><%=@job.category.name%><i class="em em-ok_hand"></i></p>
-  				<p><%=link_to "Visit website", @job.url%><i class="em em-paperclip"></i></p>
-			</div>
-
-			<div class="jobsideinfo" id="companysideinfo">
-				<p>Apply</p>
-				<button class="applybutton"><%= link_to "Bring me there!", @job %></button>
 			</div>
 		</div>
 	</div>

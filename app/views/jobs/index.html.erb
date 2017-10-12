@@ -6,103 +6,49 @@
 	<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 </head>
 <body>
-    <div class="intro-page">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <a class="navbar-brand" href="/"><strong>REMOTESTUDENT</strong></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+  <div class="outer-wrapper">
+    <div class="main-header">
+        <h1>Searching for remote work?</h1>
+        <p>Find remote jobs and tasks from all over the world.</p>
+    </div>
+  </div>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <% if user_signed_in? %>
-              <li class="nav-item">
-                <strong><%= link_to "Post job", new_job_path, class: "nav-link" %></strong>
-              </li>
-              <li class="nav-item">
-                <strong><%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "nav-link" %></strong>
-              </li>
-              <li class="nav-item">
-                <div class="nav-link hello" style="margin-right: -12px;"><strong>hi,</strong></div>
-              </li>
-              <li class="nav-item">
-                <strong><%= link_to current_user.name, edit_user_registration_path, class: "nav-link" %></strong>
-              </li>
-              <% else %>
-              <li class="nav-item">
-                <strong><%= link_to "About", pages_about_path, class: "nav-link" %></strong>
-              </li>
-              <li class="nav-item">
-                <strong><%= link_to "Log in", new_user_session_path, class: "nav-link" %></strong>
-              </li>
-              <% end -%>
-            </ul>	
+  <div class="container col-md-10 loopthrough">
+    <% @jobs.take(7).each_slice(4) do |jobs| %>
+      <div class="row">
+        <% jobs.each do |job| %>
+          <div class="job col">
+            <h5><%= link_to job.title, job %></h5>
+            <p><%= job.money %>$/mo</p>
+            <p><%= job.hours %></p>
+            <p><%= job.where %></p>
           </div>
-        </nav>
-        <div class="intro-text">
-          <div class="intro-heading homepagetitle">
-            <h1><span class="too-many">Searching for</span><br> remote work?</h1>
-            <p>RemoteStudent is the platform for students and companies to help eachother. <br> Do you have alot of extra work? Hire a remote student!</p>
-            <div class="intro-buttons">
-              <% if user_signed_in? %>
-              <span class="intro-button"><%= link_to "SUBMIT JOBS", new_job_path %></span>
-              <% else %>
-              <span class="intro-button"><%= link_to "SIGN UP", new_user_registration_path %></span>
-              <% end -%>
-            </div>
-          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div class="container how col-md-10">
+      <h2>How does Remotestudent.io works?</h2>
+      <p>Browse the remote jobs and tasks that are listed and find one you like. <br> Connect with the employer and get started working from home.</p>
+      <div class="row how-row">
+        <div class="col-md-4">
+            <img src="../assets/job.svg" alt="">
+          <h5>Place</h5>
+          <p>Register your company. For $49 you can place your job listing or task with all the specific requirements needed.</p>
+        </div>
+        <div class="col-md-4">
+            <img src="../assets/dialog.svg" alt="">
+          <h5>Connect</h5>
+          <p>The job listing will connects the candidates through whatever portal or link you provided on the job listing.</p>
+        </div>
+        <div class="col-md-4">
+            <img src="../assets/flags.svg" alt="">
+          <h5>Profit</h5>
+          <p>No more time wasting and arguing about who's doing which little #$@%*! task. Focus on the fun work!</p>
         </div>
       </div>
-    </div>
-    <div class="companies-page">
-      <div class="row-companies">
-        <h4 class="section-title">
-          <span>New Jobs<i class="fa fa-arrow-down" aria-hidden="true"></i></span>
-        </h4>
-      </div>
-    </div>
-	<div class="container">
-		<div id="jobs">
-			<% @jobs.take(6).each do |job| %>
-			<div class="container job">
-				<small id="created" style="float: right;"><%= time_ago_in_words(job.created_at) %></small>
-				<h2 class="mb-1 jobtitle"><%= link_to job.title, job%></h2>
-				<small id="inforow"><%= job.where%></small>
-				<small id="category" style="color: green; float: right;"><%= job.category.name%></small>
-				<small id="inforow"><%= job.hours%> Hours/W</small>
-				<small id="inforow">$<%= job.money%>/mo.</small>
-				<p class="mb-1" id="company"><%= job.company%></p>
-			</div>
-			<% end -%>
-		</div>
-	</div>
-
-  <div class="container">
-        <% @typejobs.each do |typejob| %>
-              <div class="companies-page">
-                <div class="row-companies">
-                  <div class="section-title">
-                    <span><%= typejob.name %><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
-                  </div>
-                </div>
-              </div>
-              <div class="container">
-                <div id="jobs">
-                  <% typejob.jobs.take(10).each do |job| %>
-                  <div class="container job">
-                    <small id="created" style="float: right;"><%= time_ago_in_words(job.created_at) %></small>
-                    <h2 class="mb-1 jobtitle"><%= link_to job.title, job%></h2>
-                    <small id="inforow"><%= job.where%></small>
-                    <small id="category" style="color: green; float: right;"><%= job.category.name%></small>
-                    <small id="inforow"><%= job.hours%> Hours/W</small>
-                    <small id="inforow">$<%= job.money%>/mo.</small>
-                    <p class="mb-1" id="company"><%= job.company%></p>
-                  </div>
-                  <% end %>
-                </div>
-              </div>
-        <% end %>
   </div>
 
 

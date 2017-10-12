@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-	def terms
+	def index
 	end
 
 	def about

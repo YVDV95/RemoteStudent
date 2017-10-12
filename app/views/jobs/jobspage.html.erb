@@ -1,0 +1,14 @@
+  <div class="container col-md-10 loopthrough">
+    <% @jobs.take(8).each_slice(4) do |jobs| %>
+      <div class="row">
+        <% jobs.each do |job| %>
+          <div class="job col">
+            <h5><%= link_to job.title, job %></h5>
+            <p class="moneytag"><%= job.money %></p>
+            <p><%= job.where %></p>
+            <p><%= job.hours %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>

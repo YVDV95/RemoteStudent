@@ -4,7 +4,7 @@ class JobsController < ApplicationController
 
 	def index
 		@jobs = Job.all.order("created_at DESC")
-		@typejobs = Typejob.order("created_at ASC")
+		@typejobs = Typejob.all.order("created_at ASC")
 	end
 
 	def new
@@ -15,11 +15,36 @@ class JobsController < ApplicationController
 	end
 
 	def create
+
 		@job = current_user.jobs.build(job_params)
-		if @job.save
-			redirect_to @job
-		else
-			render 'new'
+		charge_error = nil
+
+		if @job.valid?
+			begin
+				customer = Stripe::Customer.create(
+				:email => params[:stripeEmail],
+				:source  => params[:stripeToken]
+				)
+
+				charge = Stripe::Charge.create(
+				:customer    => customer.id,
+				:amount      => 4900,
+				:description => 'RemoteStudent customer',
+				:currency    => 'usd'
+				)
+
+				rescue Stripe::CardError => e
+  					flash[:error] = e.message
+  					redirect_to new_charge_path
+				end
+			    if charge_error
+			      flash[:error] = charge_error
+			      render 'new'
+			    else
+			    	@job.save
+			    	redirect_to @job
+			    end
+			    flash[:error] = 'one or more errors in your order'
 		end
 	end
 

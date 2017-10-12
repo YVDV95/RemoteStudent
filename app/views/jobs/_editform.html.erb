@@ -14,11 +14,8 @@
  		<%= f.collection_select :category_id, Category.all, :id, :name %>
  		<br>
  		<br>
- 		<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A job listing"
-          data-amount="4999"
-          data-locale="auto">
-        </script>
+
+ 		<%= f.button :submit, class: "applyjob" %>
+
 	<% end %>
 </div>
