@@ -1,0 +1,86 @@
+<script>
+  $(document).ready(function() {
+  $('#example').DataTable();
+  } );
+</script>
+<h2 style="text-align: center; font color: #C6426E; letter-spacing: -.045em; font-weight: 800; margin-top: 10px;">ALL JOBS</h2>
+<div class="container col-md-10 jobstable">
+<table id="example" class="table table-responsive" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+              <th>Job title</th>
+              <th>Salary/m</th>
+              <th>Hours/w</th>
+              <th>Category</th>
+              <th>Company</th>
+              <th>Based</th>
+              <th>Type</th>
+              <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% @jobs.each do |job| %>
+            <tr>
+              <td><%= link_to job.title, job %></td>
+              <td style="color: green;">$<%= job.money %></td>
+              <td style="color: skyblue;"><%= job.hours %></td>
+              <td><%= job.typejob.name %></td>
+              <td><%= job.company %></td>
+              <td><%= job.where %></td>
+              <td><%= job.category.name %></td>
+              <td><%= time_ago_in_words(job.created_at) %></td>
+            </tr>
+            <% end -%>
+        </tbody>
+    </table></div>
+
+<% if user_signed_in? %>
+    <% if current_user.jobs.blank? %>
+    <h2 style="text-align: center; font color: #C6426E; letter-spacing: -.045em; font-weight: 800; margin-top: 20px;">MY LISTINGS</h2>
+    <div class="container how col-md-10">
+      <h2> 0 Jobs listed yet..</h2>
+    </div>
+    <% else %>
+      <div class="container col-md-10 loopthrough">
+        <h2 style="text-align: center; font color: #C6426E; letter-spacing: -.045em; font-weight: 800;">MY LISTINGS</h2>
+          <div class="row" style="text-align: center;">
+            <% current_user.jobs.reverse_each do |job| %>
+              <div class="job col mylisting">
+                <h5 style="font-size: 16px; min-height: 80px;"><%= link_to job.title, job %></h5>
+                <p><%= job.money %>$/mo</p>
+                <p><%= time_ago_in_words(job.created_at) %></p>
+              </div>
+            <% end -%>
+          </div>
+      </div>
+    <% end -%>
+  <% else %>
+  <div class="container how col-md-10">
+    <h2>It seems like you dont have any job listings yet..</h2>
+    <div class="getstarted">
+      <button class="applybutton">
+        <%= link_to "Get started!", new_job_path %>
+      </button>
+    </div>
+  </div>
+  <% end -%>
+<!--
+  <div class="container col-md-10 loopthrough">
+    <% @typejobs.each do |typejob| %>
+      <h2 style="text-align: left; font color: #C6426E; letter-spacing: -.045em; font-weight: 800;"><%= typejob.name%></h2>
+      <div class="row">
+        <% typejob.jobs.each do |job| %>
+          <div class="job col">
+            <h5><%= link_to job.title, job %></h5>
+            <p><%= job.money %>$/mo</p>
+            <p><%= job.hours %></p>
+            <p><%= job.where %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+-->
+
+

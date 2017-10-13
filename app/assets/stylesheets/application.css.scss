@@ -51,7 +51,6 @@ html,body{
 	background: #642B73;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to right, #C6426E, #642B73);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to right, #C6426E, #642B73); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
 
 .navbar-light .navbar-nav .nav-link{
@@ -59,6 +58,28 @@ html,body{
 	font-size: 14px;
 	transition: all 0.2s ease-in;
 	text-decoration: none;
+}
+
+.navbar-light .navbar-nav .nav-link:hover{
+	-webkit-stroke-width: 2.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    text-shadow: 1px 0px 10px #f98bb0;
+    color: #FFF;
+}
+
+.nav-link a{
+	color: #FFF;
+	text-decoration: none;
+	font-weight: 800;
+}
+
+.nav-link a:hover{
+	text-decoration: none;
+}
+
+.help-block{
+	font-weight: bold;
 }
 
 .outer-wrapper{
@@ -109,15 +130,34 @@ html,body{
 	background-color: #FFF;
 	margin-top: 20px;
 	border-radius: 4px;
-	box-shadow: 0 0 15px rgba(0,0,0, 0.075);
+	box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
 	padding: 3em 0;
+}
+
+.how h1{
+	text-align: center;
+	font-size: 25px;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #000;
+	letter-spacing: -.045em;
+	font-weight: 800;
 }
 
 .how h2{
 	text-align: center;
 	font-size: 15px;
 	font-weight: 700;
-	color: #2e263c;
+	color: #000;
+	letter-spacing: -.045em;
+	font-weight: 800;
+}
+
+.how h5{
+	color: #000;
+	letter-spacing: -.045em;
+	font-weight: 800;
+	text-transform: uppercase;
 }
 
 .how p{
@@ -137,8 +177,17 @@ html,body{
 	text-align: center;
 }
 
+.getstarted{
+	text-align: center;
+}
+
 .loopthrough{
 	margin-top: 20px;
+}
+
+.job p{
+	color: #000;
+	letter-spacing: -.045em;
 }
 
 .job{
@@ -146,17 +195,54 @@ html,body{
 	border-radius: 5px;
 	background-color: #FFF;
 	margin: 5px;
-	box-shadow: 0 0 15px rgba(0,0,0, 0.075);
+	box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07)
+}
+
+.mylisting{
+	background-color:  #cce6ff;
+	box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07)
+}
+
+.jobstable{
+	background-color: #fff;
+	margin-top: 30px;
+	border-radius: 5px;
+	box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+	border-top: none;
+}
+
+.jobstable a{
+	color: #C6426E;
+	font-weight: 600;
+	letter-spacing: -.045em;
+}
+
+.table thead th{
+	padding: 4px 10px 3px;
+	vertical-align: middle;
+	font-size: 16px;
+}
+
+.table tbody > tr > td{
+	padding: 5px 11px 5px;
+	vertical-align: middle;
+	font-size: 15px;
 }
 
 .job h5{
 	text-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+	font-size: 15px;
 }
 
 .job a{
 	color: #000;
-	letter-spacing: -.035em;
-	font-weight: 700;
+	letter-spacing: -.045em;
+	font-weight: 800;
+	text-transform: uppercase;
+}
+
+.job p{
+	font-size: 14p
 }
 
 .moneytag{
@@ -201,10 +287,6 @@ trix-editor{
 	color: #bcc4cc;
 }
 
-.loginpage{
-	background: transparent;
-}
-
 .new-job-listing{
 	margin-top: 200px;
 }
@@ -232,6 +314,8 @@ trix-editor{
 	text-align: center;
 }
 
+
+
 #companysideinfo{
 	font-size: 17px;
 	font-weight: 600;
@@ -243,9 +327,9 @@ trix-editor{
 
 #companytitleinfo{
 	font-size: 17px;
-	font-weight: 600;
+	letter-spacing: -.045em;
+	font-weight: 800;
 	text-transform: uppercase;
-	letter-spacing: 0.015em;
 	text-align: center;
 }
 
@@ -300,23 +384,51 @@ background: linear-gradient( #2B32B2, #1488CC); /* W3C, IE 10+/ Edge, Firefox 16
 	background-color: red;
 }
 
-.form-control.string.optional{
-	border: none;
-	border-bottom: 1px solid #ececec;
-	border-radius: 0px;
-}
-
-.form-control.numeric.integer.optional{
-	border: none;
-	border-bottom: 1px solid #ececec;
-	border-radius: 0px;
-}
-
 .section-title{
 	text-align: center;
 }
 
+.email{
+	margin-top: 20px;
+}
 
+.email h2{
+	font-size: 17px;
+	letter-spacing: -.045em;
+	font-weight: 800;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+#mc_embed_signup{
+	background: #f8f8f8 !important;
+}
+
+#mc_embed_signup input.email{
+	height: 36px !important;
+	box-shadow: 0 0 12px rgba(0,0,0, 0.075);
+	background-color: #cce6ff !important;
+	border: none !important;
+	text-align: center !important;
+}
+
+/* Pricing */
+
+.pricingtitle h1{
+	margin-top: 20px;
+	font-size: 50px;
+	letter-spacing: -.045em;
+	font-weight: 800;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.pricinglabel p{
+	text-align: center;
+	margin-top: 20px;
+	letter-spacing: -.045em;
+	color: #bcc4cc;
+}
 /* Footer */
 
 #myFooter{

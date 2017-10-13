@@ -1,56 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>RemoteStudent</title>
-	<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
-</head>
-<body>
-  <div class="outer-wrapper">
-    <div class="main-header">
-        <h1>Searching for remote work?</h1>
-        <p>Find remote jobs and tasks from all over the world.</p>
+
+<div class="outer-wrapper">
+  <div class="main-header">
+      <h1>Searching for remote work?</h1>
+      <p>Find remote jobs and tasks from all over the world.</p>
+  </div>
+</div>
+<div class="container col-md-10 loopthrough">
+  <h2 style="text-align: center; font color: #C6426E; letter-spacing: -.045em; font-weight: 800;">RECENT JOBS</h2>
+  <% @jobs.take(7).each_slice(4) do |jobs| %>
+    <div class="row">
+      <% jobs.each do |job| %>
+        <div class="job col">
+          <h5 style="min-height: 30px;"><%= link_to job.title, job %></h5>
+          <p style="color: green;">$<%= job.money %>/mo</p>
+          <p style="color: skyblue;"><%= job.hours %> hours/w</p>
+          <p><%= job.typejob.name %></p>
+          <p><%= time_ago_in_words(job.created_at) %> ago</p>
+        </div>
+      <% end %>
     </div>
-  </div>
+  <% end %>
+</div>
 
-  <div class="container col-md-10 loopthrough">
-    <% @jobs.take(7).each_slice(4) do |jobs| %>
-      <div class="row">
-        <% jobs.each do |job| %>
-          <div class="job col">
-            <h5><%= link_to job.title, job %></h5>
-            <p><%= job.money %>$/mo</p>
-            <p><%= job.hours %></p>
-            <p><%= job.where %></p>
-          </div>
-        <% end %>
+<div class="container how col-md-8" style="background-color: #cce6ff;">
+  <h1>Post a job listing!</h1>
+  <div class="getstarted">
+    <button class="applybutton">
+      <%= link_to "Get started", new_job_path %>
+    </button>
+  </div>
+</div>
+
+<div class="container how col-md-10">
+    <h2>How does RemoteStudent.io work?</h2>
+    <p>Browse the remote jobs and tasks that are listed and find one you like. <br> Connect with the employer and get started working from home.</p>
+    <div class="row how-row">
+      <div class="col-md-4">
+          <img src="../assets/job.svg" alt="">
+        <h5>Place</h5>
+        <p>Register an account. For $49 you can place your job listing or task for 30 days on the RemoteStudent job board.</p>
       </div>
-    <% end %>
-  </div>
-
-
-  <div class="container how col-md-10">
-      <h2>How does Remotestudent.io works?</h2>
-      <p>Browse the remote jobs and tasks that are listed and find one you like. <br> Connect with the employer and get started working from home.</p>
-      <div class="row how-row">
-        <div class="col-md-4">
-            <img src="../assets/job.svg" alt="">
-          <h5>Place</h5>
-          <p>Register your company. For $49 you can place your job listing or task with all the specific requirements needed.</p>
-        </div>
-        <div class="col-md-4">
-            <img src="../assets/dialog.svg" alt="">
-          <h5>Connect</h5>
-          <p>The job listing will connects the candidates through whatever portal or link you provided on the job listing.</p>
-        </div>
-        <div class="col-md-4">
-            <img src="../assets/flags.svg" alt="">
-          <h5>Profit</h5>
-          <p>No more time wasting and arguing about who's doing which little #$@%*! task. Focus on the fun work!</p>
-        </div>
+      <div class="col-md-4">
+          <img src="../assets/dialog.svg" alt="">
+        <h5>Connect</h5>
+        <p>The job listing will connect the candidate through whatever portal or link you provided on the job listing.</p>
       </div>
-  </div>
+      <div class="col-md-4">
+          <img src="../assets/flags.svg" alt="">
+        <h5>Profit</h5>
+        <p>No more time wasting and arguing about who's doing which little #$@%*! task. Focus on the fun work!</p>
+      </div>
+    </div>
+</div>
 
+<div class="container col-md-10 email">
+  <h2>Get updated every week!</h2>
+<!-- Begin MailChimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+  /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+     We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="https://Remotestudent.us17.list-manage.com/subscribe/post?u=4ddce11ae9fdfbd5971b5bc64&amp;id=e0aa68b1d1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+  
+  <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_4ddce11ae9fdfbd5971b5bc64_e0aa68b1d1" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="applybutton"></div>
+    </div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->
+</div>
 
 </body>
 </html>

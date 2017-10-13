@@ -9,8 +9,8 @@
  		<%= f.input :where, label: "Based in.."%>
  		<%= f.input :hours, label: "Amount of hours (weekly)"%>
  		<%= f.input :money, label: "Estimated salary ($/month)"%>
-
- 		<%= f.input :url, placeholder: "Can also be an e-mail adress!", label:"URL"%>
+ 		<%= f.input :email, placeholder: "your email adress"%>
+ 		<%= f.input :url, placeholder: "!!Make sure you use http:// of https://, otherwise it wont work.. (yet)!!", label:"URL"%>
  		<%= f.collection_select :category_id, Category.all, :id, :name %>
  		<br>
  		<br>

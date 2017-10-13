@@ -12,12 +12,13 @@
   				<p><%=@job.money%>$/mo<i class="em em-moneybag"></i></p>
   				<p><%=@job.hours%>h/w<i class="em em-alarm_clock"></i></p>
   				<p><%=@job.category.name%><i class="em em-ok_hand"></i></p>
+   				<p><%= mail_to @job.email, "Email Me" %><i class="em em-paperclip"></i></p>
   				<p><%=link_to "Visit website", @job.url%><i class="em em-paperclip"></i></p>
 			</div>
 
 			<div class="jobsideinfo" id="companysideinfo">
 				<p>Apply</p>
-				<button class="applybutton"><%= link_to "Bring me there!", @job %></button>
+				<button class="applybutton"><%= link_to "Bring me there!", @job.url %></button>
 			</div>
 		</div>
 	</div>
@@ -38,7 +39,7 @@
 						  <%= link_to "Delete", job_path(@job), method: :delete, data: { confirm: "Are you sure?" }, class: "applybutton"%>
 						</a>
           <% else %>
-            <%= link_to "Apply!", @job, class: "applybutton" %>
+            <%= link_to "Apply!", @job, :target => "_blank", class: "applybutton" %>
 
 
 					<% end -%>

@@ -1,8 +1,9 @@
 class PagesController < ApplicationController
 
-	def index
+	def pricing
 	end
 
-	def about
+	def support
 	end
+
 end
