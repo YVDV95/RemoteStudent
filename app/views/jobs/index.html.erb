@@ -10,14 +10,14 @@
 <div class="container col-md-10 loopthrough">
   <h2 style="text-align: center; font color: #C6426E; letter-spacing: -.045em; font-weight: 800;">RECENT JOBS</h2>
   <% @jobs.take(7).each_slice(4) do |jobs| %>
-    <div class="row">
+    <div class="row jobbox">
       <% jobs.each do |job| %>
-        <div class="job col">
+        <div class="job col col-xs-10">
           <h5 style="min-height: 30px;"><%= link_to job.title, job %></h5>
           <p style="color: green;">$<%= job.money %>/mo</p>
           <p style="color: skyblue;"><%= job.hours %> hours/w</p>
           <p><%= job.typejob.name %></p>
-          <p><%= time_ago_in_words(job.created_at) %> ago</p>
+          <p style="font-style: italic; font-size: 12px;"><%= time_ago_in_words(job.created_at) %> ago</p>
         </div>
       <% end %>
     </div>
@@ -71,13 +71,11 @@
   <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
     <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_4ddce11ae9fdfbd5971b5bc64_e0aa68b1d1" tabindex="-1" value=""></div>
-    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="applybutton"></div>
+      <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="applybutton"></div>
     </div>
 </form>
 </div>
 
-<!--End mc_embed_signup-->
-</div>
 
 </body>
 </html>
