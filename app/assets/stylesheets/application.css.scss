@@ -48,9 +48,10 @@ html,body{
 }
 
 .bg-light{
-	background: #642B73;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #C6426E, #642B73);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #C6426E, #642B73); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .navbar-light .navbar-nav .nav-link{
@@ -83,9 +84,9 @@ html,body{
 }
 
 .outer-wrapper{
-	background: #642B73;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #C6426E, #642B73);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #C6426E, #642B73); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 	background-position: center 1%;
 	width: 100%;
@@ -388,11 +389,11 @@ background: linear-gradient( #2B32B2, #1488CC); /* W3C, IE 10+/ Edge, Firefox 16
 	text-align: center;
 }
 
-.email{
+.emailio{
 	margin-top: 20px;
 }
 
-.email h2{
+.emailio h2{
 	font-size: 17px;
 	letter-spacing: -.045em;
 	font-weight: 800;
