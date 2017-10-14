@@ -355,8 +355,8 @@ trix-editor{
 	box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
 	color: #fff;
 	text-transform: uppercase;
-	font-weight: 600;
-	letter-spacing: 0.015em;
+	font-weight: 800;
+	letter-spacing: -.045em;
 }
 
 .applybutton:hover{
@@ -411,6 +411,24 @@ background: linear-gradient( #2B32B2, #1488CC); /* W3C, IE 10+/ Edge, Firefox 16
 	background-color: #cce6ff !important;
 	border: none !important;
 	text-align: center !important;
+}
+
+.logincube{
+	box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+	border-radius: 5px;
+	background-color: #ececec;
+}
+
+.loginpage{
+	padding: 15px;
+}
+
+.formtitles h2{
+	margin-top: 40px;
+	font-weight: 800;
+	text-align: center;
+	color: #642B73;
+	letter-spacing: -.045em;
 }
 
 /* Pricing */
