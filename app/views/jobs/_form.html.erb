@@ -1,4 +1,4 @@
-<div class="formpie">
+<div class="formpie container col-md-8">
 	<%= simple_form_for(@job, html: { class: 'form-horizontal' }) do |f| %>
 		<%= f.input :title, label: "Job title"%>
 		<%= f.collection_select :typejob_id, Typejob.all, :id, :name %>
